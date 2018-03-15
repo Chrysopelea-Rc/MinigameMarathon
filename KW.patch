@@ -1,0 +1,135 @@
+Index: app/src/main/res/layout/options_fragment.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/options_fragment.xml	(revision )
++++ app/src/main/res/layout/options_fragment.xml	(revision )
+@@ -0,0 +1,57 @@
++<?xml version="1.0" encoding="utf-8"?>
++<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:layout_editor_absoluteY="81dp">
++
++    <TextView
++        android:id="@+id/textView2"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginEnd="8dp"
++        android:layout_marginStart="8dp"
++        android:layout_marginTop="16dp"
++        android:text="Target Language"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.0"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++
++    <TextView
++        android:id="@+id/textView3"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginEnd="260dp"
++        android:layout_marginLeft="16dp"
++        android:text="Output Language"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintLeft_toLeftOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/spinner2" />
++
++    <Spinner
++        android:id="@+id/spinner2"
++        android:layout_width="368dp"
++        android:layout_height="0dp"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.0"
++        app:layout_constraintLeft_toLeftOf="parent"
++        app:layout_constraintRight_toRightOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/textView2" />
++
++    <Spinner
++        android:id="@+id/spinner3"
++        android:layout_width="359dp"
++        android:layout_height="0dp"
++        android:layout_marginEnd="8dp"
++        android:layout_marginStart="8dp"
++        android:layout_marginTop="4dp"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.0"
++        app:layout_constraintLeft_toLeftOf="parent"
++        app:layout_constraintRight_toRightOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/textView3" />
++</android.support.constraint.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/strings.xml	(revision 34b97fa5be33ff77f027abebc56ff4685c283aa7)
++++ app/src/main/res/values/strings.xml	(revision )
+@@ -5,4 +5,19 @@
+     <string name="navigation_drawer_close">Close navigation drawer</string>
+ 
+     <string name="action_settings">Settings</string>
++    <string-array name="target_language">
++        <item>Auto</item>
++        <item>English</item>
++        <item>Chinese</item>
++        <item>Korean</item>
++        <item>Japanese</item>
++        <item>Spanish</item>
++    </string-array>
++    <string-array name="output_language">
++        <item>English</item>
++        <item>Chinese</item>
++        <item>Korean</item>
++        <item>Japanese</item>
++        <item>Spanish</item>
++    </string-array>
+ </resources>
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/modules.xml	(revision 34b97fa5be33ff77f027abebc56ff4685c283aa7)
++++ .idea/modules.xml	(revision )
+@@ -3,6 +3,7 @@
+   <component name="ProjectModuleManager">
+     <modules>
+       <module fileurl="file://$PROJECT_DIR$/MinigameMarathon.iml" filepath="$PROJECT_DIR$/MinigameMarathon.iml" />
++      <module fileurl="file://$PROJECT_DIR$/ScreenTranslator.iml" filepath="$PROJECT_DIR$/ScreenTranslator.iml" />
+       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+     </modules>
+   </component>
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- build.gradle	(revision 34b97fa5be33ff77f027abebc56ff4685c283aa7)
++++ build.gradle	(revision )
+@@ -3,9 +3,10 @@
+ buildscript {
+     repositories {
+         jcenter()
++        google()
+     }
+     dependencies {
+-        classpath 'com.android.tools.build:gradle:3.0.0'
++        classpath 'com.android.tools.build:gradle:3.0.1'
+ 
+         // NOTE: Do not place your application dependencies here; they belong
+         // in the individual module build.gradle files
+@@ -15,6 +16,7 @@
+ allprojects {
+     repositories {
+         jcenter()
++        google()
+     }
+ }
+ 
